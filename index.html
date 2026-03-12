@@ -47,7 +47,7 @@
         const botao = document.getElementById('btn-tema');
         const corpo = document.body;
         const temaSalvo = localStorage.getItem('tema');
-        position: fixed;
+       
 
         if (temaSalvo === 'claro') {
             corpo.classList.add('light-mode');
@@ -63,9 +63,33 @@
                 localStorage.setItem('tema', 'escuro');
                 botao.innerText = "Modo Claro";
             }
+            #btn-tema {
+    position: fixed;   /* Isso aqui é o que trava o botão na tela */
+    bottom: 20px;      /* Distância da borda de baixo */
+    right: 20px;       /* Distância da borda da direita */
+    z-index: 1000;     /* Garante que ele fique por cima de tudo */
+    
+    /* Para manter o tamanho e formato sempre iguais */
+    width: 120px;
+    height: 45px;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Opcional: Estilo quando estiver no modo claro */
+body.light-mode #btn-tema {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
         });
     </script>
 </body> </html>
+
 
 
 
