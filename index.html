@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:description" content="Portfólio de Mateus Barbosa, Software Engineer em formação. Conheça meus projetos e experiências.">
+    <meta property="og:description" content="Portfólio de Mateus Barbosa, Software Engineer em formação. Conheça meus projetos.">
     <title>Portfólio - Mateus Barbosa</title>
     <link rel="stylesheet" href="index.css">
+
     <style>
-        /* Este código garante que o botão fique fixo na tela do celular e PC */
         #btn-tema {
-            position: fixed;   /* Trava o botão na tela */
+            position: fixed;   /* Trava o botão na tela (vidro do celular) */
             bottom: 20px;      /* Distância do fundo */
             right: 20px;       /* Distância da direita */
-            z-index: 1000;     /* Fica na frente de tudo */
+            z-index: 9999;     /* Garante que fique acima de tudo */
+            
+            /* Tamanho fixo para não mudar de formato no PC/Celular */
             width: 120px;
             height: 45px;
-            border-radius: 20px;
+            border-radius: 25px;
+            
+            /* Visual profissional */
             background-color: #333;
             color: white;
-            border: none;
-            cursor: pointer;
+            border: 2px solid #555;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: 0.3s;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Cor do botão quando o modo claro estiver ativo */
+        /* Ajuste do botão quando o modo CLARO estiver ativo */
         body.light-mode #btn-tema {
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             color: #333;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
+        }
+
+        /* Pequeno efeito ao passar o mouse (só aparece no PC) */
+        #btn-tema:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body> 
+<body>
+
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -53,16 +67,11 @@
     <main>
         <section>
             <h3>Sobre mim</h3>
-            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos. Se você chegou até aqui, provavelmente viu que eu curto colocar a mão na massa para criar coisas no navegador. Minha jornada com o código começou por curiosidade, mas logo virou um desafio pessoal: entender como transformar uma tela preta em algo que as pessoas realmente usem.</p>
+            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos. Sou Software Engineer em formação e curto criar soluções funcionais para a web.</p>
         </section>
         
         <section>
             <h3>Formação</h3>
-            <p>Software Engineer / Em Formação</p>
-        </section>
-        
-        <section>
-            <h3>Cursos</h3>
             <p>Engenharia de Software - Unopar</p>
         </section>
     </main>
@@ -78,15 +87,16 @@
         </a>
     </footer>
 
-    <button id="btn-tema">Mudar Tema</button>
+    <button id="btn-tema">Modo Claro</button>
 
     <script>
         const botao = document.getElementById('btn-tema');
         const corpo = document.body;
         
-        // 1. Verifica se já existe um tema salvo no navegador
+        // Verifica o que está salvo na "memória" do navegador
         const temaSalvo = localStorage.getItem('tema');
 
+        // Se o tema salvo for claro, aplica a classe e muda o texto
         if (temaSalvo === 'claro') {
             corpo.classList.add('light-mode');
             botao.innerText = "Modo Escuro";
@@ -94,7 +104,7 @@
             botao.innerText = "Modo Claro";
         }
 
-        // 2. Lógica de clique para trocar o tema
+        // Função que troca o tema ao clicar
         botao.addEventListener('click', () => {
             corpo.classList.toggle('light-mode');
             
@@ -107,11 +117,5 @@
             }
         });
     </script>
-</body> 
+</body>
 </html>
-
-
-
-
-
-
