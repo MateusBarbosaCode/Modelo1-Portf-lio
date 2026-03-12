@@ -1,5 +1,6 @@
 <body>
-    <div class="container"> <nav>
+    <div class="container">
+        <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -8,17 +9,17 @@
         </nav>
 
         <header>
-            <div class="texto-header">
-                <h1>Mateus Barbosa</h1>
-                <h2>Software Engineer</h2>
-            </div>
-            <img src="./img/mateus.png.jfif" alt="Mateus" class="foto-perfil">
+            <h1>Mateus Barbosa</h1>
+            <h2>Software Engineer</h2>
         </header>
+
+        <img src="./img/mateus.png.jfif" alt="Mateus" class="foto-perfil">
 
         <main>
             <section>
-                <h3>Sobre mim</h3>
-                <p>E aí, tudo bem? Eu sou o Mateus...</p>
+                <h3>Contato</h3>
+                <p>Entre em contato comigo através dos canais abaixo:</p>
+                <p>E-mail: mateusbarbosa4509@gmail.com</p>
             </section>
         </main>
 
@@ -27,10 +28,21 @@
                 <img src="./img/github.png" alt="GitHub" class="icon">
                 <span>GitHub</span>
             </a>
-        </footer>
-    </div> <button id="btn-tema">Mudar Tema</button>
+            </footer>
+    </div>
+
+    <button id="btn-tema">Mudar Tema</button>
 
     <script>
-        // ... (seu script de sempre)
+        const botao = document.getElementById('btn-tema');
+        const corpo = document.body;
+        const temaSalvo = localStorage.getItem('tema');
+
+        if (temaSalvo === 'claro') corpo.classList.add('light-mode');
+
+        botao.addEventListener('click', () => {
+            corpo.classList.toggle('light-mode');
+            localStorage.setItem('tema', corpo.classList.contains('light-mode') ? 'claro' : 'escuro');
+        });
     </script>
 </body>
