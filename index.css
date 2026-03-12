@@ -1,99 +1,172 @@
-/* Configurações Gerais */
 body {
-    background-color: black;
+   color: rgb(234, 234, 234); 
+   background-color: black; 
+    font-family: 'Times New Roman', Times, sans-serif;
+
+}
+ul {
+   display: flex;
+   justify-content: space-between;
+   list-style-type: none;
+   align-items: center;
+   padding: 16px; 
+}
+a {
+   color: rgb(232, 229, 229); 
+   text-decoration: none; 
+   font-size: 18px; cursor: pointer;
+padding: 10px 15px;
+border-radius: 20px;
+ border: 2px solid rgb(227, 222, 222);
+    background-color: transparent;
     color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza tudo na tela */
-    text-align: center;
+    font-weight: bold;
+    transition: 0.3s;
+}
+    #btn-tema {
+    padding: 8px 18px;
+    border-radius: 50px;
+    background-color: transparent; /* Deixa o fundo aparecer */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Faz a troca de cor ser suave */
+    font-weight: bold;
 }
 
-/* Modo Claro (Light Mode) */
-body.light-mode {
+/* --- ESTADO 1: MODO ESCURO (Padrão do seu site) --- */
+/* Quando o body NÃO tem a classe .light-mode */
+#btn-tema {
+    border: 2px solid white;
+    color: white;
+}
+
+#btn-tema:hover {
     background-color: white;
     color: black;
 }
 
-/* Navegação (Os botões do topo) */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
+/* --- ESTADO 2: MODO CLARO (A Exceção) --- */
+/* "Se o body tiver a classe .light-mode, mude o #btn-tema" */
+body.light-mode #btn-tema {
+    border: 2px solid black; /* Borda preta para aparecer no fundo branco */
+    color: black;           /* Texto preto para aparecer no fundo branco */
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: inherit; /* Pega a cor do body (branco ou preto) */
-    border: 2px solid currentColor;
-    padding: 8px 20px;
-    border-radius: 25px; /* Bordas arredondadas igual da foto */
-    font-weight: bold;
-    display: block;
+body.light-mode #btn-tema:hover {
+    background-color: black;
+    color: white;
 }
 
-/* O Botão de Mudar Tema  */
-#btn-tema {
-    background: transparent;
-    color: inherit;
-    border: 2px solid currentColor;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-}
 
-/* Foto de Perfil */
-.foto-perfil {
-    width: 200px;
-    height: 200px;
+header img {
+   width: 150px; 
+   height: 150px; 
     border-radius: 50%;
-    border: 3px solid #555;
-    margin-top: 20px;
-    object-fit: cover;
+    border: 5px solid rgb(211, 214, 213);
 }
-
-/* Cabeçalho e Textos */
-header h1 {
-    margin-top: 20px;
-    font-size: 2rem;
+.Center {
+   text-align: center;
 }
-
-header h2 {
-    color: #bbb;
-    font-weight: normal;
+footer img {
+   width: 60px; 
+   height: 60px; 
+    margin: 0 10px;
 }
-
-main {
-    max-width: 90%;
-    margin-top: 30px;
-}
-
-section h3 {
-    text-align: left;
-    border-left: 4px solid #fff;
-    padding-left: 10px;
-}
-
-body.light-mode section h3 {
-    border-left-color: #000;
-}
-
-/* Rodapé (Icons do GitHub/Instagram) */
 footer {
-    margin-top: 40px;
-    padding-bottom: 40px;
-    display: flex;
-    gap: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 40px; 
+}
+footer a {
+  display: flex;           /* Ativa o modo flex */
+    flex-direction: column;  /* ISSO AQUI: coloca um embaixo do outro */
+    align-items: center;     /* Centraliza o texto com a imagem */
+    gap: 10px;               /* Dá um espacinho entre a imagem e o nome */
+    text-decoration: none;   /* Tira o risco embaixo do nome */
+    color: white;            /* Garante que o nome fique branco */
+    margin: 0 20px;          /* Espaço entre um ícone e outro */
+}
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px; 
+   padding: 70px; 
+}
+nav a:hover {
+    color: oklab(92.757% -0.06803 0.18929);
+}
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+body.light-mode a, 
+body.light-mode footer span {
+    color: black;
+}
+#btn-tema {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+body.light-mode #btn-tema {
+    background: white;
+    color: white;
+    border: 1px solid #333;
+}
+/* tem que estar no Index.css */
+body.light-mode {
+    background-color: white !important; /* O !important garante que ele vença o preto */
+    color: black !important;
 }
 
-.icon {
-    width: 30px;
-    vertical-align: middle;
+/* links mudam também */
+body.light-mode a {
+    color: black;
+}
+#btn-tema {
+    position: fixed;   /* Fixa o botão na tela */
+    top: 70px;         /* Distância do topo */
+    right: 20px;       /* Distância da direita */
+    z-index: 1000;     /* Garante que ele fique NA FRENTE de tudo */
+   
+    
+    /* Estilo para o botão ficar bonito */
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Efeito quando o mouse passa em cima */
+#btn-tema:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Quando o modo claro estiver ativo*/
+body.light-mode #btn-tema {
+    border-color: black;
+    color: black;
+}
+
+body.light-mode #btn-tema:hover {
+    background-color: black;
+    color: white;
+}
+/* Efeito Hover (dinâmico!) */
+#btn-tema:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05); /* aumentar um pouco */
 }
