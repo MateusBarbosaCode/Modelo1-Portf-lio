@@ -1,4 +1,4 @@
-/* Reset total para celular e PC */
+/* Reset total */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +6,14 @@
 }
 
 body {
-    background-color: #000000; /* Fundo preto inicial */
+    background-color: #000000;
     color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s;
 }
 
 /* Modo Claro */
@@ -22,61 +22,82 @@ body.light-mode {
     color: #000000;
 }
 
-/* Menu de Navegação - Estilo Pílula */
-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
+/* Menu do Topo (Pílulas) */
 nav ul {
     list-style: none;
     display: flex;
     gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
     justify-content: center;
 }
 
-/* Estilo dos links e do botão (Bordas arredondadas igual ao print) */
-nav ul li a, #btn-tema {
+nav ul li a {
     text-decoration: none;
     color: inherit;
     border: 2px solid currentColor;
-    padding: 10px 25px;
-    border-radius: 30px; /* Faz o formato de pílula */
+    padding: 8px 20px;
+    border-radius: 25px;
     font-weight: bold;
-    background: transparent;
-    cursor: pointer;
     font-size: 14px;
-    transition: 0.2s;
 }
 
-#btn-tema:active {
-    transform: scale(0.95);
-}
-
-/* Foto de Perfil com borda circular */
+/* FOTO DE PERFIL */
 .foto-perfil {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 4px solid #fff;
     object-fit: cover;
-    margin: 30px 0;
+    margin: 20px 0;
 }
+body.light-mode .foto-perfil { border-color: #000; }
 
-body.light-mode .foto-perfil {
-    border-color: #000;
-}
-
-/* Estrutura de texto */
+/* TEXTOS CENTRALIZADOS */
 header, main {
     width: 100%;
     max-width: 500px;
     text-align: left;
 }
+h1 { font-size: 32px; margin-bottom: 5px; text-align: center; }
+h2 { font-size: 18px; color: #aaa; margin-bottom: 30px; text-align: center; }
 
-h1 { font-size: 32px; margin-bottom: 10px; }
-h2 { font-size: 18px; color: #ccc; margin-bottom: 30px; font-weight: normal
+/* O BOTÃO QUE ACOMPANHA (FIXO) */
+#btn-tema {
+    position: fixed;   /* Isso faz ele acompanhar a rolagem */
+    bottom: 20px;      /* Distância do fundo */
+    right: 20px;       /* Distância da direita */
+    z-index: 9999;
+    
+    background-color: #333;
+    color: white;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+body.light-mode #btn-tema {
+    background-color: #eee;
+    color: #000;
+    border-color: #000;
+}
+
+/* RODAPÉ */
+footer {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+}
+footer a {
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid currentColor;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.icon { width: 25px; }
