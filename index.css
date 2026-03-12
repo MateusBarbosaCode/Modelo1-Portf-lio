@@ -1,4 +1,4 @@
-/* Reset total */
+/* Reset e Base */
 * {
     margin: 0;
     padding: 0;
@@ -6,76 +6,78 @@
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: sans-serif;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
     padding: 20px;
     transition: background 0.3s;
 }
 
-/* Modo Claro */
 body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
 }
 
-/* Menu do Topo (Pílulas) */
+/* Menu de Pílulas (Topo) */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 30px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
     text-decoration: none;
     color: inherit;
     border: 2px solid currentColor;
-    padding: 8px 20px;
-    border-radius: 25px;
+    padding: 10px 25px;
+    border-radius: 30px;
     font-weight: bold;
     font-size: 14px;
+    transition: 0.2s;
 }
 
-/* FOTO DE PERFIL */
+/* Foto de Perfil */
 .foto-perfil {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 4px solid #fff;
     object-fit: cover;
-    margin: 20px 0;
+    margin: 20px auto;
+    display: block;
 }
 body.light-mode .foto-perfil { border-color: #000; }
 
-/* TEXTOS CENTRALIZADOS */
+/* Estrutura de Conteúdo */
 header, main {
     width: 100%;
-    max-width: 500px;
-    text-align: left;
+    max-width: 800px; /* No PC ele abre mais a largura */
 }
-h1 { font-size: 32px; margin-bottom: 5px; text-align: center; }
-h2 { font-size: 18px; color: #aaa; margin-bottom: 30px; text-align: center; }
 
-/* O BOTÃO QUE ACOMPANHA (FIXO) */
+h1 { font-size: 32px; text-align: center; margin-bottom: 10px; }
+h2 { font-size: 18px; text-align: center; color: #aaa; margin-bottom: 40px; }
+
+/* Botão de Tema que ACOMPANHA (Fixo) */
 #btn-tema {
-    position: fixed;   /* Isso faz ele acompanhar a rolagem */
-    bottom: 20px;      /* Distância do fundo */
-    right: 20px;       /* Distância da direita */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     z-index: 9999;
-    
-    background-color: #333;
-    color: white;
-    border: 2px solid #fff;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border-radius: 30px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 body.light-mode #btn-tema {
@@ -84,20 +86,37 @@ body.light-mode #btn-tema {
     border-color: #000;
 }
 
-/* RODAPÉ */
-footer {
-    margin-top: 40px;
-    display: flex;
-    gap: 15px;
+/* --- AJUSTES ESPECÍFICOS PARA PC (Telas maiores) --- */
+@media (min-width: 768px) {
+    h1 { font-size: 48px; }
+    .foto-perfil { width: 250px; height: 250px; }
+    
+    /* No PC, o texto do Sobre Mim pode ficar mais espalhado */
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
 footer a {
     text-decoration: none;
     color: inherit;
     border: 2px solid currentColor;
-    padding: 10px;
+    padding: 12px 20px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .icon { width: 25px; }
