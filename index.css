@@ -1,39 +1,99 @@
-/* impede que a página balance para os lados no celular */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
+/* Configurações Gerais */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo na tela */
+    text-align: center;
 }
 
+/* Modo Claro (Light Mode) */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Navegação (Os botões do topo) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit; /* Pega a cor do body (branco ou preto) */
+    border: 2px solid currentColor;
+    padding: 8px 20px;
+    border-radius: 25px; /* Bordas arredondadas igual da foto */
+    font-weight: bold;
+    display: block;
+}
+
+/* O Botão de Mudar Tema  */
 #btn-tema {
-    position: fixed;
-    /* colocado no topo direito  */
-    top: 15px; 
-    right: 15px; 
-    z-index: 9999;
-    
-    /* Tamanho e visual */
-    width: 100px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-    font-size: 12px;
+    background: transparent;
+    color: inherit;
+    border: 2px solid currentColor;
+    padding: 8px 20px;
+    border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    
-    /* Garante que o texto fique centralizado */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 10px;
 }
 
-/* Ajuste para o modo claro */
-body.light-mode #btn-tema {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
+/* Foto de Perfil */
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #555;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+/* Cabeçalho e Textos */
+header h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+header h2 {
+    color: #bbb;
+    font-weight: normal;
+}
+
+main {
+    max-width: 90%;
+    margin-top: 30px;
+}
+
+section h3 {
+    text-align: left;
+    border-left: 4px solid #fff;
+    padding-left: 10px;
+}
+
+body.light-mode section h3 {
+    border-left-color: #000;
+}
+
+/* Rodapé (Icons do GitHub/Instagram) */
+footer {
+    margin-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    width: 30px;
+    vertical-align: middle;
 }
