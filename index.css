@@ -1,21 +1,30 @@
+/* Reset total */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Fundo padrão */
 body {
     background-color: #000;
     color: #fff;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
-    padding: 20px;
     transition: background 0.3s;
 }
 
 body.light-mode {
     background-color: #fff;
     color: #000;
+}
+
+/* CONTAINER - O segredo para o PC não parecer celular */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Largura total no PC */
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* MENU ESPALHADO  */
@@ -25,91 +34,89 @@ nav ul {
     justify-content: space-between; /* Home esquerda, Sobre meio, Contato direita */
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: inherit;
     border: 2px solid currentColor;
-    padding: 8px 25px;
-    border-radius: 25px;
+    padding: 10px 25px;
+    border-radius: 30px;
     font-weight: bold;
 }
 
-/* FOTO DE PERFIL PEQUENA NA ESQUERDA */
+/* FOTO DE PERFIL (Alinhada à esquerda no PC) */
 .foto-perfil {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 3px solid currentColor;
     object-fit: cover;
     margin: 20px 0;
 }
 
-/* CONTEÚDO ALINHADO À ESQUERDA */
+/* TEXTOS (Esquerda no PC) */
 header, main {
     text-align: left;
-    max-width: 800px;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 10px; }
-h2 { font-size: 1.2rem; margin-bottom: 30px; }
+h1 { font-size: 3rem; margin-bottom: 5px; }
+h2 { font-size: 1.2rem; color: #888; font-weight: normal; margin-bottom: 30px; }
 
-section { margin-bottom: 25px; }
-section h3 { margin-bottom: 5px; font-size: 1.1rem; text-transform: none; }
-section p { color: #ccc; font-size: 0.9rem; }
+section { margin-bottom: 30px; }
+section h3 { margin-bottom: 10px; font-size: 1.2rem; }
+section p { color: #ccc; line-height: 1.6; }
 body.light-mode section p { color: #444; }
 
 /* RODAPÉ CENTRALIZADO */
 footer {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin-top: 50px;
 }
 
 footer a {
-    border: 2px solid currentColor;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
     text-decoration: none;
     color: inherit;
-    min-width: 100px;
+    border: 2px solid currentColor;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
 }
 
 .icon { width: 40px; display: block; margin: 0 auto 5px; }
 
-/* BOTÃO DE TEMA FIXO */
+/* BOTÃO FIXO (Acompanha a rolagem no Celular e PC) */
 #btn-tema {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     z-index: 9999;
-    background: #222;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background-color: #333;
     color: #fff;
-    border: 1px solid #fff;
-    padding: 10px 15px;
-    border-radius: 20px;
-    cursor: pointer;
+    border: 2px solid #fff;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 body.light-mode #btn-tema {
-    background: #eee;
+    background-color: #eee;
     color: #000;
-    border: 1px solid #000;
+    border: 2px solid #000;
 }
 
-/* AJUSTE PARA CELULAR (Para não quebrar o menu espalhado) */
+/* AJUSTE PARA CELULAR (Garante que o celular não fique bagunçado) */
 @media (max-width: 600px) {
     nav ul {
-        flex-direction: row;
-        font-size: 12px;
+        justify-content: center;
+        gap: 10px;
     }
-    nav ul li a { padding: 5px 15px; }
-    h1 { font-size: 2rem; }
+    nav ul li a { padding: 8px 15px; font-size: 12px; }
+    h1 { font-size: 2.2rem; }
+    .foto-perfil { width: 150px; height: 150px; }
 }
-
