@@ -1,122 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:description" content="Portfólio de Mateus Barbosa, Software Engineer em formação. Conheça meus projetos.">
-    <title>Portfólio - Mateus Barbosa</title>
-    <link rel="stylesheet" href="index.css">
+#btn-tema {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    
+    /* Tamanho fixo que não quebra */
+    width: 110px;
+    height: 45px;
+    
+    /* Estilo */
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* bug do touch no celular */
+    touch-action: manipulation; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    
+    /* texto fique centralizado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
 
-    <style>
-   
-        #btn-tema {
-            position: fixed;   /* Trava o botão na tela (vidro do celular) */
-            bottom: 20px;      /* Distância do fundo */
-            right: 20px;       /* Distância da direita */
-            z-index: 9999;     /* Garante que fique acima de tudo */
-            
-            /* Tamanho fixo para não mudar de formato no PC/Celular */
-            width: 120px;
-            height: 45px;
-            border-radius: 25px;
-            
-            /* Visual profissional */
-            background-color: #333;
-            color: white;
-            border: 2px solid #555;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Quando o modo claro está ativo */
+body.light-mode #btn-tema {
+    background-color: #f0f0f0;
+    color: #000;
+    border: 2px solid #ccc;
+}
 
-        /* Ajuste do botão quando o modo CLARO estiver ativo */
-        body.light-mode #btn-tema {
-            background-color: #ffffff;
-            color: #333;
-            border: 2px solid #ccc;
-        }
-
-        /* Pequeno efeito ao passar o mouse (só aparece no PC) */
-        #btn-tema:hover {
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <div class="center">
-            <h1>Mateus Barbosa</h1>
-            <h2>Software Engineer</h2>
-            <img src="./img/mateus.png.jfif" alt="Foto de Mateus Barbosa" class="foto-perfil">  
-        </div>
-    </header>
-
-    <main>
-        <section>
-            <h3>Sobre mim</h3>
-            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos. Sou Software Engineer em formação e curto criar soluções funcionais para a web.</p>
-        </section>
-        
-        <section>
-            <h3>Formação</h3>
-            <p>Engenharia de Software - Unopar</p>
-        </section>
-    </main>
-
-    <footer>
-        <a href="https://github.com/MateusBarbosaCode" target="_blank">
-            <img src="./img/github.png" alt="GitHub" class="icon">
-            <span>GitHub</span>
-        </a>
-        <a href="https://www.instagram.com/mtbarbosa._/" target="_blank">
-            <img src="./img/icons8-instagram.svg" alt="Instagram" class="icon">
-            <span>Instagram</span>
-        </a>
-    </footer>
-
-    <button id="btn-tema">Modo Claro</button>
-
-    <script>
-        const botao = document.getElementById('btn-tema');
-        const corpo = document.body;
-        
-        // Verifica o que está salvo na "memória" do navegador
-        const temaSalvo = localStorage.getItem('tema');
-
-        // Se o tema salvo for claro, aplica a classe e muda o texto
-        if (temaSalvo === 'claro') {
-            corpo.classList.add('light-mode');
-            botao.innerText = "Modo Escuro";
-        } else {
-            botao.innerText = "Modo Claro";
-        }
-
-        // Função que troca o tema ao clicar
-        botao.addEventListener('click', () => {
-            corpo.classList.toggle('light-mode');
-            
-            if (corpo.classList.contains('light-mode')) {
-                localStorage.setItem('tema', 'claro');
-                botao.innerText = "Modo Escuro";
-            } else {
-                localStorage.setItem('tema', 'escuro');
-                botao.innerText = "Modo Claro";
-            }
-        });
-    </script>
-</body>
-</html>
+/* Evita que a página ganhe uma barra de rolagem horizontal por causa do botão */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
