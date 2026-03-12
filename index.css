@@ -18,7 +18,7 @@ body.light-mode {
     color: #000;
 }
 
-/* MENU ESPALHADO (IGUAL À FOTO) */
+/* MENU ESPALHADO  */
 nav ul {
     list-style: none;
     display: flex;
@@ -81,7 +81,7 @@ footer a {
 
 .icon { width: 40px; display: block; margin: 0 auto 5px; }
 
-/* BOTÃO DE TEMA FIXO (O QUE VOCÊ QUERIA QUE ACOMPANHASSE) */
+/* BOTÃO DE TEMA FIXO */
 #btn-tema {
     position: fixed;
     bottom: 20px;
@@ -112,3 +112,4 @@ body.light-mode #btn-tema {
     nav ul li a { padding: 5px 15px; }
     h1 { font-size: 2rem; }
 }
+
