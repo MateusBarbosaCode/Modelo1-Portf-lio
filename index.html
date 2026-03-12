@@ -14,61 +14,40 @@
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="contato.html">Contato</a></li>
         </ul>
-        <button id="btn-tema">Mudar Tema</button>
     </nav>
 
     <header>
         <h1>Mateus Barbosa</h1>
         <h2>Software Engineer</h2>
-        <img src="./img/mateus.png.jfif" alt="Foto de Mateus Barbosa" class="foto-perfil">
+        <div style="display: flex; justify-content: center;">
+            <img src="./img/mateus.png.jfif" alt="Foto" class="foto-perfil">
+        </div>
     </header>
 
     <main>
         <section>
             <h3>Sobre mim</h3>
-            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos. Sou Software Engineer em formação e curto criar soluções funcionais para a web.</p>
+            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos...</p>
         </section>
-
-        <section>
-            <h3>Formação</h3>
-            <p>Software Engineer / Em Formação</p>
-        </section>
-
-        <section>
-            <h3>Cursos</h3>
-            <p>Engenharia de Software - Unopar</p>
-        </section>
-    </main>
+        </main>
 
     <footer>
-        <a href="https://github.com/MateusBarbosaCode" target="_blank">
-            <img src="./img/github.png" alt="GitHub" class="icon">
-            <span>GitHub</span>
-        </a>
-        <a href="https://www.instagram.com/mtbarbosa._/" target="_blank">
-            <img src="./img/icons8-instagram.svg" alt="Instagram" class="icon">
-            <span>Instagram</span>
-        </a>
-    </footer>
+        </footer>
+
+    <button id="btn-tema">Mudar Tema</button>
 
     <script>
         const botao = document.getElementById('btn-tema');
         const corpo = document.body;
         const temaSalvo = localStorage.getItem('tema');
 
-        // Aplica o tema salvo ao carregar
         if (temaSalvo === 'claro') {
             corpo.classList.add('light-mode');
         }
 
         botao.addEventListener('click', () => {
             corpo.classList.toggle('light-mode');
-            
-            if (corpo.classList.contains('light-mode')) {
-                localStorage.setItem('tema', 'claro');
-            } else {
-                localStorage.setItem('tema', 'escuro');
-            }
+            localStorage.setItem('tema', corpo.classList.contains('light-mode') ? 'claro' : 'escuro');
         });
     </script>
 </body>
