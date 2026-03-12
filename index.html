@@ -1,54 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Mateus Barbosa</title>
-    <link rel="stylesheet" href="index.css">
-</head>
 <body>
+    <div class="container"> <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
+        <header>
+            <div class="texto-header">
+                <h1>Mateus Barbosa</h1>
+                <h2>Software Engineer</h2>
+            </div>
+            <img src="./img/mateus.png.jfif" alt="Mateus" class="foto-perfil">
+        </header>
 
-    <header>
-        <h1>Mateus Barbosa</h1>
-        <h2>Software Engineer</h2>
-        <div style="display: flex; justify-content: center;">
-            <img src="./img/mateus.png.jfif" alt="Foto" class="foto-perfil">
-        </div>
-    </header>
-
-    <main>
-        <section>
-            <h3>Sobre mim</h3>
-            <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos...</p>
-        </section>
+        <main>
+            <section>
+                <h3>Sobre mim</h3>
+                <p>E aí, tudo bem? Eu sou o Mateus...</p>
+            </section>
         </main>
 
-    <footer>
+        <footer>
+            <a href="https://github.com/MateusBarbosaCode" target="_blank">
+                <img src="./img/github.png" alt="GitHub" class="icon">
+                <span>GitHub</span>
+            </a>
         </footer>
-
-    <button id="btn-tema">Mudar Tema</button>
+    </div> <button id="btn-tema">Mudar Tema</button>
 
     <script>
-        const botao = document.getElementById('btn-tema');
-        const corpo = document.body;
-        const temaSalvo = localStorage.getItem('tema');
-
-        if (temaSalvo === 'claro') {
-            corpo.classList.add('light-mode');
-        }
-
-        botao.addEventListener('click', () => {
-            corpo.classList.toggle('light-mode');
-            localStorage.setItem('tema', corpo.classList.contains('light-mode') ? 'claro' : 'escuro');
-        });
+        // ... (seu script de sempre)
     </script>
 </body>
-</html>
