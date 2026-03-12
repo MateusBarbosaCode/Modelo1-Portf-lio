@@ -1,33 +1,42 @@
-/* Reset e Base */
+/* RESET E BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+/* Fundo sempre preto por padrão */
+html, body {
     background-color: #000;
     color: #fff;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
-    padding: 20px;
-    transition: background 0.3s;
+    width: 100%;
 }
 
+/* MODO CLARO */
 body.light-mode {
     background-color: #fff;
     color: #000;
 }
 
-/* Menu de Pílulas (Topo) */
+/* CONTAINER PRINCIPAL (Resolve o bug do PC parecer celular) */
+.container {
+    width: 100%;
+    max-width: 1000px; /* No PC ele abre bem a largura */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* MENU DE PÍLULAS (Igual à foto de 17:02) */
 nav ul {
     list-style: none;
     display: flex;
     gap: 15px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -40,71 +49,63 @@ nav ul li a {
     border-radius: 30px;
     font-weight: bold;
     font-size: 14px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
-/* Foto de Perfil */
+/* FOTO DE PERFIL */
 .foto-perfil {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    border: 4px solid #fff;
+    border: 4px solid currentColor;
     object-fit: cover;
-    margin: 20px auto;
+    margin: 30px auto;
     display: block;
 }
-body.light-mode .foto-perfil { border-color: #000; }
 
-/* Estrutura de Conteúdo */
+/* TEXTOS (No PC alinhado, no Celular ajustado) */
 header, main {
     width: 100%;
-    max-width: 800px; /* No PC ele abre mais a largura */
+    text-align: center;
 }
 
-h1 { font-size: 32px; text-align: center; margin-bottom: 10px; }
-h2 { font-size: 18px; text-align: center; color: #aaa; margin-bottom: 40px; }
+h1 { font-size: 2.5rem; margin-bottom: 10px; }
+h2 { font-size: 1.2rem; color: #aaa; margin-bottom: 40px; }
 
-/* Botão de Tema que ACOMPANHA (Fixo) */
+section {
+    text-align: left; /* Texto do Sobre Mim alinhado à esquerda como um dev profissional */
+    margin-bottom: 30px;
+}
+
+/* BOTÃO FIXO (O que acompanha a rolagem) */
 #btn-tema {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
+    position: fixed !important; /* Força o fixo */
+    bottom: 25px;
+    right: 25px;
+    z-index: 10000; /* Garante que fique acima de tudo */
+    
     padding: 12px 20px;
     border-radius: 30px;
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     border: 2px solid #fff;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 body.light-mode #btn-tema {
     background-color: #eee;
     color: #000;
-    border-color: #000;
+    border: 2px solid #000;
 }
 
-/* --- AJUSTES ESPECÍFICOS PARA PC (Telas maiores) --- */
-@media (min-width: 768px) {
-    h1 { font-size: 48px; }
-    .foto-perfil { width: 250px; height: 250px; }
-    
-    /* No PC, o texto do Sobre Mim pode ficar mais espalhado */
-    main {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-/* Rodapé */
+/* RODAPÉ */
 footer {
-    margin-top: 50px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
+    margin-top: 50px;
     padding-bottom: 50px;
 }
 
@@ -120,3 +121,12 @@ footer a {
 }
 
 .icon { width: 25px; }
+
+/* MEDIA QUERY - AJUSTES DE PC */
+@media (min-width: 768px) {
+    h1 { font-size: 3.5rem; }
+    .foto-perfil { width: 280px; height: 280px; }
+    header, main { text-align: left; } /* No PC fica elegante alinhado à esquerda */
+    header { display: flex; align-items: center; gap: 40px; text-align: left; }
+    .foto-perfil { margin: 0; }
+}
