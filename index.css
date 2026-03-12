@@ -1,43 +1,39 @@
+/* impede que a página balance para os lados no celular */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #btn-tema {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    /* colocado no topo direito  */
+    top: 15px; 
+    right: 15px; 
     z-index: 9999;
     
-    /* Tamanho fixo que não quebra */
-    width: 110px;
-    height: 45px;
-    
-    /* Estilo */
+    /* Tamanho e visual */
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
     background-color: #333;
     color: #fff;
-    border: 2px solid #555;
-    border-radius: 30px;
-    font-size: 13px;
+    border: 1px solid #555;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     
-    /* bug do touch no celular */
-    touch-action: manipulation; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    
-    /* texto fique centralizado */
+    /* Garante que o texto fique centralizado */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0;
 }
 
-/* Quando o modo claro está ativo */
+/* Ajuste para o modo claro */
 body.light-mode #btn-tema {
-    background-color: #f0f0f0;
-    color: #000;
-    border: 2px solid #ccc;
-}
-
-/* Evita que a página ganhe uma barra de rolagem horizontal por causa do botão */
-body {
-    overflow-x: hidden;
-    width: 100%;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
 }
