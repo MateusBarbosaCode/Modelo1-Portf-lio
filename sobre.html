@@ -13,7 +13,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="contato.html">Contato</a></li>
-            <li><button id="btn-tema">Trocar Tema</button></li>
+            <li><button id="btn-tema" style="cursor: pointer;">Mudar Tema</button></li>
         </ul>
     </nav>
 
@@ -40,35 +40,4 @@
             <img src="./img/github.png" alt="GitHub" class="icon">
             <span>GitHub</span>
         </a>
-        <a href="https://www.instagram.com/mtbarbosa._/" target="_blank" rel="noopener noreferrer">
-            <img src="./img/icons8-instagram.svg" alt="Instagram" class="icon">
-            <span>Instagram</span>
-        </a>
-    </footer>
 
-<script>
-    // Esse código roda assim que a página abre
-    const body = document.body;
-    const btn = document.getElementById("btn-tema");
-    const currentTheme = localStorage.getItem("theme");
-
-    // 1. Aplica o tema salvo IMEDIATAMENTE ao carregar
-    if (currentTheme === "dark") {
-        body.classList.add("dark-theme");
-    }
-
-    // 2. Configura o botão (se ele existir na página)
-    if (btn) {
-        btn.addEventListener("click", function() {
-            body.classList.toggle("dark-theme");
-            
-            let theme = "light";
-            if (body.classList.contains("dark-theme")) {
-                theme = "dark";
-            }
-            localStorage.setItem("theme", theme);
-        });
-    }
-</script>
-</body>
-</html>
