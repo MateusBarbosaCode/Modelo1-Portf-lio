@@ -8,47 +8,44 @@
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
 
-    <header>
-        <h1>Mateus Barbosa</h1>
-        <h2>Software Engineer</h2>
-        <img src="./img/mateus.png.jfif" alt="Foto" class="foto-perfil">
-    </header>
+        <header>
+            <h1>Mateus Barbosa</h1>
+            <h2>Software Engineer</h2>
+            <img src="./img/mateus.png.jfif" alt="Mateus" class="foto-perfil">
+        </header>
 
-    <main>
-        <section>
-            <h3>Sobre mim</h3>
-            <p>E aí, tudo bem? Eu sou o Mateus Barbosa...</p>
-        </section>
+        <main>
+            <section>
+                <h3>Sobre mim</h3>
+                <p>E aí, tudo bem? Eu sou o Mateus Barbosa Santos...</p>
+            </section>
+            
+            <section>
+                <h3>Contato</h3>
+                <p>E-mail: mateusbarbosa4509@gmail.com</p>
+            </section>
+        </main>
 
-        <section>
-            <h3>Formação</h3>
-            <p>Software Engineer</p>
-        </section>
-
-        <section>
-            <h3>Cursos</h3>
-            <p>Engenharia de Software</p>
-        </section>
-    </main>
-
-    <footer>
-        <a href="https://github.com/MateusBarbosaCode" target="_blank">
-            <img src="./img/github.png" alt="GitHub" class="icon">
-            <span>GitHub</span>
-        </a>
-        <a href="https://www.instagram.com/mtbarbosa._/" target="_blank">
-            <img src="./img/icons8-instagram.svg" alt="Instagram" class="icon">
-            <span>Instagram</span>
-        </a>
-    </footer>
+        <footer>
+            <a href="https://github.com/MateusBarbosaCode" target="_blank">
+                <img src="./img/github.png" alt="GitHub" class="icon">
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.instagram.com/mtbarbosa._/" target="_blank">
+                <img src="./img/icons8-instagram.svg" alt="Instagram" class="icon">
+                <span>Instagram</span>
+            </a>
+        </footer>
+    </div>
 
     <button id="btn-tema">Modo Claro</button>
 
@@ -56,6 +53,7 @@
         const btn = document.getElementById('btn-tema');
         const body = document.body;
 
+        // Recupera o tema do localStorage
         if (localStorage.getItem('tema') === 'claro') {
             body.classList.add('light-mode');
             btn.innerText = "Modo Escuro";
